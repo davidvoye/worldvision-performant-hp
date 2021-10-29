@@ -1,0 +1,5 @@
+var campaign_code=(typeof data_obj!='undefined'&&typeof data_obj.campaign_code!='undefined')?data_obj.campaign_code:null;function readCookie(name){var nameEQ=name+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' ')c=c.substring(1,c.length);if(c.indexOf(nameEQ)==0)return c.substring(nameEQ.length,c.length);}
+return null;}
+var overWriteCampaignCookie=function(campaign_code){var date=new Date();var time=date.getTime();expireCampaign=time+3600*1000*24*180;date.setTime(expireCampaign);document.cookie="campaign="+campaign_code+"; expires="+date.toUTCString()+" UTC; path=/; domain=worldvision.org";}
+if(campaign_code==null||campaign_code.length<7){console.log("WARNING:: campaign code passed is NULL or length < 7. Cookie wont be set otherwise please fix this campaign_code : "+campaign_code);}
+else if(readCookie('campaign')==="11840913"){overWriteCampaignCookie(campaign_code);}
